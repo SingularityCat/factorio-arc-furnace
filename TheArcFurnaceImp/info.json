@@ -1,0 +1,9 @@
+{
+    "name": "TheArcFurnaceImp",
+    "version": "1.0.6",
+    "title": "Arc Furnace (Improved)",
+    "author": "SingularityCat",
+    "homepage": "https://github.com/SingularityCat/factorio-arc-furnace",
+    "description": "Ores cower in fear from this furnace, watch as it drinks electricity to turn solid ore into liquid within an instant.",
+    "factorio_version": "1.1"
+}
