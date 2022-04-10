@@ -22,6 +22,8 @@ local function copy_recipe_data(src, dst, scale)
             }
         end
 
+        dst["energy_required"] = src["energy_required"]
+
         if src["result"] ~= nil then
             dst["result"] = src["result"]
             dst["result_count"] = (src["result_count"] or 1) * scale
@@ -42,6 +44,31 @@ local function copy_recipe_data(src, dst, scale)
 end
 
 
+local function mimic_recipe_module_limitations(source_recipe, target_recipe)
+    for _, module in pairs(data.raw["module"]) do
+
+        if module.limitation ~= nil then
+            for _, recipe in ipairs(module.limitation) do
+                if recipe == source_recipe then
+                    table.insert(module.limitation, target_recipe)
+                    break
+                end
+            end
+        end
+
+        if module.limitation_blacklist ~= nil then
+            for _, recipe in ipairs(module.limitation_blacklist) do
+                if recipe == source_recipe then
+                    table.insert(module.limitation_blacklist, target_recipe)
+                    break
+                end
+            end
+        end
+
+    end
+end
+
+
 local function generate_arc_smelting_recipe(original_recipe)
     if original_recipe["category"] ~= "smelting" then
         return
@@ -51,12 +78,11 @@ local function generate_arc_smelting_recipe(original_recipe)
         type = "recipe",
         name = "arc-" .. original_recipe["name"],
         category = "arc-smelting",
-        energy_required = (original_recipe["energy_required"] or 0.5) * 2
     }
 
     copy_recipe_data(original_recipe, recipe, 10)
-
     data:extend({recipe})
+    mimic_recipe_module_limitations(original_recipe["name"], recipe["name"])
 end
 
 
