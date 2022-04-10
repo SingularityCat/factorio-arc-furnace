@@ -1,0 +1,11 @@
+Improved version of the Arc Furnace mod by PoxyDoxy.
+
+This version generates recipes from existing ones, rather than hardcoding a list.
+As a result, it should work with any mod that adds smelting recipes.
+(It also tweaks a couple of other things.)
+
+This mod uses modified art assets from Krastorio 2 by raiguard (and others).
+
+
+Original Arc Furnace mod: https://mods.factorio.com/mod/TheArcFurnace
+Krastorio 2 mod: https://mods.factorio.com/mod/Krastorio2
