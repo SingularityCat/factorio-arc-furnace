@@ -1,3 +1,4 @@
+10/04/2022 - v1.0.7 Version bump due to upload mistake.
 10/04/2022 - v1.0.6 Made the mod generate recipes based on existing ones. --SingularityCat
 06/03/2022 - v1.0.5 Fixed mod licensing, my bad (shoutout to raiguard, many thanks!)
 28/02/2022 - v1.0.4 Added more item recipes and optional mod dependencies for Krastorio, etc.
