@@ -1,4 +1,7 @@
 local function copy_recipe_data(src, dst, scale)
+    -- does this recipe have "normal" or "expensive" variants?
+    -- If so, the recipe data is actually in those tables.
+    -- (... if they are tables - they can be false if the recipe is to be disabled in that mode).
     if src["normal"] ~= nil or src["expensive"] ~= nil then
         if type(src["normal"]) == "table" then
             dst["normal"] = {}
@@ -16,10 +19,24 @@ local function copy_recipe_data(src, dst, scale)
     else
         dst["ingredients"] = {}
         for idx, ispec in pairs(src["ingredients"]) do
-            dst["ingredients"][idx] = {
-                ispec[1],
-                ispec[2] * scale
-            }
+            -- Ingredient prototypes exist in two flavours: array-like and map-like.
+            if #ispec > 1 then
+                dst["ingredients"][idx] = {
+                    ispec[1],
+                    ispec[2] * scale
+                }
+            else
+                dst["ingredients"][idx] = {
+                    ["type"] = ispec["type"],
+                    ["name"] = ispec["name"],
+                    ["amount"] = ispec["amount"] * scale,
+                    ["catalyst_amount"] = (ispec["catalyst_amount"] or 0) * scale,
+                    ["temperture"] = ispec["temperature"],
+                    ["minimum_temperture"] = ispec["minimum_temperature"],
+                    ["maximum_temperture"] = ispec["maximum_temperature"],
+                    ["fluidbox_index"] = ispec["fluidbox_index"]
+                }
+            end
         end
 
         dst["energy_required"] = src["energy_required"]
@@ -46,7 +63,6 @@ end
 
 local function mimic_recipe_module_limitations(source_recipe, target_recipe)
     for _, module in pairs(data.raw["module"]) do
-
         if module.limitation ~= nil then
             for _, recipe in ipairs(module.limitation) do
                 if recipe == source_recipe then
@@ -64,7 +80,6 @@ local function mimic_recipe_module_limitations(source_recipe, target_recipe)
                 end
             end
         end
-
     end
 end
 
@@ -75,9 +90,9 @@ local function generate_arc_smelting_recipe(original_recipe)
     end
 
     recipe = {
-        type = "recipe",
-        name = "arc-" .. original_recipe["name"],
-        category = "arc-smelting",
+        ["type"] = "recipe",
+        ["name"] = "arc-" .. original_recipe["name"],
+        ["category"] = "arc-smelting",
     }
 
     copy_recipe_data(original_recipe, recipe, 10)
