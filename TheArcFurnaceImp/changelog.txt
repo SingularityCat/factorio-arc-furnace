@@ -1,9 +1,65 @@
-10/04/2022 - v1.0.8 Automatically fill recipe module limitations. Also copy energy cost properly.
-10/04/2022 - v1.0.7 Version bump due to upload mistake.
-10/04/2022 - v1.0.6 Made the mod generate recipes based on existing ones. --SingularityCat
-06/03/2022 - v1.0.5 Fixed mod licensing, my bad (shoutout to raiguard, many thanks!)
-28/02/2022 - v1.0.4 Added more item recipes and optional mod dependencies for Krastorio, etc.
-09/02/2022 - v1.0.3 Fixed productivity module not applying properly.
-09/02/2022 - v1.0.2 Fixed recipe errors for items that don't exist.
-08/02/2022 - v1.0.1 Fixed naming for TheArcFurnace png mapping.
-05/02/2022 - v1.0.0 Created Arc Furnace.
+---------------------------------------------------------------------------------------------------
+Version: 1.0.9
+Date: 2022.04.13
+  Bugfix:
+    - Work with the non-array-like ingredient prototypes.
+  Miscellaneous:
+    - Fix changelog format.
+    - Restore missing license file.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.8
+Date: 2022.04.10
+  Bugfix:
+    - Automatically fill recipe module limitations.
+    - Copy energy cost properly.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.7
+Date: 2022.04.10
+  Miscellaneous:
+    - Version bump due to upload mistake. Whoops!
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.6
+Date: 2022.04.10
+  Info:
+    - First forked release by SingularityCat
+  Feature:
+    - Made the mod generate recipes based on existing ones.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.5
+Date: 2022.03.06
+  Miscellaneous:
+    - Fixed mod licensing, my bad (shoutout to raiguard, many thanks!)
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.4
+Date: 2022.02.28
+  Bugfix:
+    - Added more item recipes and optional mod dependencies for Krastorio, etc.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.3
+Date: 2022.02.09
+  Bugfix:
+    - Fixed productivity module not applying properly.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.2
+Date: 2022.02.09
+  Bugfix:
+    - Fixed recipe errors for items that don't exist.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.1
+Date: 2022.02.08
+  Bugfix:
+    - Fixed naming for TheArcFurnace png mapping.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2022.02.05
+  Info:
+    - Created Arc Furnace.
