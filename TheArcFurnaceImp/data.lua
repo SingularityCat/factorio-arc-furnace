@@ -16,42 +16,64 @@ if furnace_crafting_category == "smelting+kiln" then
 else
     furnace_crafting_category = {furnace_crafting_category}
 end
-
-local fluid_boxes =
-{
+local fluid_boxes
+if furnace_type == "furnace" then
+    fluid_boxes =
     {
-        production_type = "input",
-        pipe_covers = pipecoverspictures(),
-        base_area = 10,
-        base_level = -1,
-        pipe_connections = {{ type="input", position = {-1.5, 6.8} }},
-        secondary_draw_orders = { north = -1 }
-    },
-    {
-        production_type = "input",
-        pipe_covers = pipecoverspictures(),
-        base_area = 10,
-        base_level = -1,
-        pipe_connections = {{ type="input", position = {1.5, 6.8} }},
-        secondary_draw_orders = { north = -1 }
-    },
-    {
-        production_type = "output",
-        pipe_covers = pipecoverspictures(),
-        base_area = 10,
-        base_level = 1,
-        pipe_connections = {{ type="output", position = {-4.5, 6.8} }},
-        secondary_draw_orders = { north = -1 }
-    },
-    {
-        production_type = "output",
-        pipe_covers = pipecoverspictures(),
-        base_area = 10,
-        base_level = 1,
-        pipe_connections = {{ type="output", position = {4.5, 6.8} }},
-        secondary_draw_orders = { north = -1 }
+        {
+            production_type = "input",
+            pipe_covers = pipecoverspictures(),
+            base_area = 10,
+            base_level = -1,
+            pipe_connections = {{ type="input", position = {-1.5, 6.8} }},
+            secondary_draw_orders = { north = -1 }
+        },
+        {
+            production_type = "output",
+            pipe_covers = pipecoverspictures(),
+            base_area = 10,
+            base_level = 1,
+            pipe_connections = {{ type="output", position = {1.5, 6.8} }},
+            secondary_draw_orders = { north = -1 }
+        }
     }
-}
+else
+    fluid_boxes =
+    {
+        {
+            production_type = "input",
+            pipe_covers = pipecoverspictures(),
+            base_area = 10,
+            base_level = -1,
+            pipe_connections = {{ type="input", position = {-1.5, 6.8} }},
+            secondary_draw_orders = { north = -1 }
+        },
+        {
+            production_type = "input",
+            pipe_covers = pipecoverspictures(),
+            base_area = 10,
+            base_level = -1,
+            pipe_connections = {{ type="input", position = {1.5, 6.8} }},
+            secondary_draw_orders = { north = -1 }
+        },
+        {
+            production_type = "output",
+            pipe_covers = pipecoverspictures(),
+            base_area = 10,
+            base_level = 1,
+            pipe_connections = {{ type="output", position = {-4.5, 6.8} }},
+            secondary_draw_orders = { north = -1 }
+        },
+        {
+            production_type = "output",
+            pipe_covers = pipecoverspictures(),
+            base_area = 10,
+            base_level = 1,
+            pipe_connections = {{ type="output", position = {4.5, 6.8} }},
+            secondary_draw_orders = { north = -1 }
+        }
+    }
+end
 
 data:extend({
 	-- Tech Tree Recipe
