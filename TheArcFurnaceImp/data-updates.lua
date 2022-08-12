@@ -56,8 +56,11 @@ local function scale_recipe(recipe, scale)
             for idx, rspec in pairs(recipe["results"]) do
                 if rspec["amount"] ~= nil then
                     recipe["results"][idx]["amount"] = rspec["amount"] * scale
-                else -- Contains a result with probability
+                end
+                if rspec["amount_min"] ~= nil then
                     recipe["results"][idx]["amount_min"] = rspec["amount_min"] * scale
+                end
+                if rspec["amount_max"] ~= nil then
                     recipe["results"][idx]["amount_max"] = rspec["amount_max"] * scale
                 end
             end
