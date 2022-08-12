@@ -74,6 +74,12 @@ local function generate_arc_smelting_recipe(original_recipe)
     recipe["name"] = "arc-" .. original_recipe["name"]
     recipe["category"] = "arc-smelting"
     --Enable all recipes, since I do not know how to enable it after the specific research has been activated (like when enriched ores tech from Krastorio is unlocked)
+    if type(recipe["normal"]) == "table" then
+        recipe["normal"]["enabled"] = true
+    end
+    if type(recipe["expensive"]) == "table" then
+        recipe["expensive"]["enabled"] = true
+    end
     recipe["enabled"] = true 
 
     local scaling_factor = 10
