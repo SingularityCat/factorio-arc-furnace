@@ -17,6 +17,42 @@ else
     furnace_crafting_category = {furnace_crafting_category}
 end
 
+local fluid_boxes =
+{
+    {
+        production_type = "input",
+        pipe_covers = pipecoverspictures(),
+        base_area = 10,
+        base_level = -1,
+        pipe_connections = {{ type="input", position = {-1.5, 6.8} }},
+        secondary_draw_orders = { north = -1 }
+    },
+    {
+        production_type = "input",
+        pipe_covers = pipecoverspictures(),
+        base_area = 10,
+        base_level = -1,
+        pipe_connections = {{ type="input", position = {1.5, 6.8} }},
+        secondary_draw_orders = { north = -1 }
+    },
+    {
+        production_type = "output",
+        pipe_covers = pipecoverspictures(),
+        base_area = 10,
+        base_level = 1,
+        pipe_connections = {{ type="output", position = {-4.5, 6.8} }},
+        secondary_draw_orders = { north = -1 }
+    },
+    {
+        production_type = "output",
+        pipe_covers = pipecoverspictures(),
+        base_area = 10,
+        base_level = 1,
+        pipe_connections = {{ type="output", position = {4.5, 6.8} }},
+        secondary_draw_orders = { north = -1 }
+    }
+}
+
 data:extend({
 	-- Tech Tree Recipe
     {
@@ -77,6 +113,7 @@ data:extend({
         collision_box = {{-10, -2.8}, {10, 6.3}},
         selection_box = {{-10, -2.8}, {10, 6.3}},
         drawing_box   = {{-10, -2.8}, {10, 6.3}},
+        fluid_boxes = fluid_boxes,
         module_specification = {
             module_slots = 8,
             module_info_icon_shift = {0, 0.8}
