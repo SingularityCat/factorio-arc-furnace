@@ -5,7 +5,7 @@
     "author": "SingularityCat",
     "homepage": "https://github.com/SingularityCat/factorio-arc-furnace",
     "description": "Ores cower in fear from this furnace, watch as it drinks electricity to turn solid ore into liquid within an instant.",
-    "factorio_version": "1.1"
+    "factorio_version": "1.1",
     "dependencies": [
         "stdlib >= 0.0.6"
     ]
