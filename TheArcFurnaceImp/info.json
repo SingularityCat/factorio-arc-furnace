@@ -7,7 +7,7 @@
     "description": "Ores cower in fear from this furnace, watch as it drinks electricity to turn solid ore into liquid within an instant.",
     "factorio_version": "1.1",
     "dependencies": [
-        "stdlib >= 0.0.6"
+        "stdlib >= 0.0.6",
         "? space-exploration >= 0.6.0"
     ]
 }
