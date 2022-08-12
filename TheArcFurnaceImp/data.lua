@@ -1,6 +1,7 @@
 local MOD_ROOT = "__TheArcFurnaceImp__"
 local furnace_type = settings.startup["ArcFurnace-type"].value
 local furnace_crafting_category = settings.startup["ArcFurnace-crafting-category"].value
+local furnace_allow_in_space = settings.startup["ArcFurnace-space-platform"].value
 
 if furnace_crafting_category == "smelting+kiln" then
     -- Check if space exploration >= 0.6 is there for the kiln crafting category.
@@ -86,6 +87,7 @@ data:extend({
         crafting_speed = settings.startup["ArcFurnace-CraftingSpeed"].value,
         energy_usage = "100000kW",
         source_inventory_size = 1,
+        se_allow_in_space = furnace_allow_in_space,
         energy_source = {
             type = "electric",
             usage_priority = "secondary-input",
