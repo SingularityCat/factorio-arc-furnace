@@ -20,7 +20,7 @@ data:extend({
         name = "ArcFurnace-crafting-category",
         setting_type = "startup",
         default_value = "arc-smelting",
-        allowed_values = {"smelting", "arc-smelting"},
+        allowed_values = {"smelting", "arc-smelting", "smelting+kiln"},
         order = "a"
     }
 })
