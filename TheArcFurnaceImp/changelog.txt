@@ -3,6 +3,7 @@ Version: 1.0.11
 Date: 2022.08.12
   Feature:
     - Added type of furnace in startup settings. Either vanilla furnace-like smelting or selecting recipe like assembling machine.
+    - Added category of smelting of furnace in startup settings. "arc-smelting" creates scaled recipe for the arc furnace and "smelting" doesn't. However, when chosing "smelting", due to the limitations of the game engine, it is recommended to use a mod such as "Deadlock Stacked Recipes" to circumvent those game engine limitations.
 
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.10

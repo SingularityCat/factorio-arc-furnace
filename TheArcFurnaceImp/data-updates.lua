@@ -1,4 +1,5 @@
 local utils_table = require('__stdlib__/stdlib/utils/table')
+local furnace_crafting_category = settings.startup["ArcFurnace-crafting-category"].value
 
 local function mimic_recipe_module_limitations(source_recipe, target_recipe)
     for _, module in pairs(data.raw["module"]) do
@@ -91,8 +92,10 @@ end
 
 
 -- Generate smelting recipes
-for _, recipe in pairs(data.raw["recipe"]) do
-    if recipe["category"] == "smelting" then
-        generate_arc_smelting_recipe(recipe)
+if furnace_crafting_category == "arc-smelting" then
+    for _, recipe in pairs(data.raw["recipe"]) do
+        if recipe["category"] == "smelting" then
+            generate_arc_smelting_recipe(recipe)
+        end
     end
 end

@@ -14,5 +14,13 @@ data:extend({
         default_value = "furnace",
         allowed_values = {"assembling-machine", "furnace"},
         order = "a"
+    },
+    {
+        type = "string-setting",
+        name = "ArcFurnace-crafting-category",
+        setting_type = "startup",
+        default_value = "arc-smelting",
+        allowed_values = {"smelting", "arc-smelting"},
+        order = "a"
     }
 })
