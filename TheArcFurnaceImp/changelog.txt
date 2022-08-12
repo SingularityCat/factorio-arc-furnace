@@ -1,4 +1,23 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.11
+Date: 2022.08.12
+  Feature:
+    - Added type of furnace in startup settings. Either vanilla furnace-like smelting or selecting recipe like assembling machine.
+    - Added category of smelting of furnace in startup settings. "arc-smelting" creates scaled recipe for the arc furnace and "smelting" doesn't. However, when chosing "smelting", due to the limitations of the game engine, it is recommended to use a mod such as "Deadlock Stacked Recipes" to circumvent those game engine limitations. "smelting+kiln" is for both the smelting and kiln category, since kiln was added in Space Exploration 0.6
+    - Added setting to allow in space in startup settings.
+    - Added fluid inputs/outputs for the Arc Furnace.
+
+---------------------------------------------------------------------------------------------------
+Version: 1.0.10
+Date: 2022.08.11
+  Info:
+    - Added stdlib (Factorio Standard Library) as requirement for the bugfixes.
+  Bugfix:
+    - Fixed startup errors for recipe results when there is a probability and amount_min/max.
+    - Fixed copying custom icons for recipes. (If they're used by another mods (such as Deadbolt's stacked recipes), it won't generate a startup error).
+    - Fixed entity description.
+
+---------------------------------------------------------------------------------------------------
 Version: 1.0.9
 Date: 2022.04.13
   Bugfix:

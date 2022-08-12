@@ -1,4 +1,79 @@
 local MOD_ROOT = "__TheArcFurnaceImp__"
+local furnace_type = settings.startup["ArcFurnace-type"].value
+local furnace_crafting_category = settings.startup["ArcFurnace-crafting-category"].value
+local furnace_allow_in_space = settings.startup["ArcFurnace-space-platform"].value
+
+if furnace_crafting_category == "smelting+kiln" then
+    -- Check if space exploration >= 0.6 is there for the kiln crafting category.
+    if mods["space-exploration"] ~= nil then
+        local major, minor, patch = string.match(mods["space-exploration"], "(%d+)%.(%d+)%.(%d+)")
+        if (tonumber(major) == 0 and tonumber(minor) >= 6) or (tonumber(major) >= 1) then
+            furnace_crafting_category = {"smelting", "kiln"}
+        else
+            furnace_crafting_category = {"smelting"}
+        end
+    end
+else
+    furnace_crafting_category = {furnace_crafting_category}
+end
+local fluid_boxes
+if furnace_type == "furnace" then
+    fluid_boxes =
+    {
+        {
+            production_type = "input",
+            pipe_covers = pipecoverspictures(),
+            base_area = 10,
+            base_level = -1,
+            pipe_connections = {{ type="input", position = {-1.5, 6.8} }},
+            secondary_draw_orders = { north = -1 }
+        },
+        {
+            production_type = "output",
+            pipe_covers = pipecoverspictures(),
+            base_area = 10,
+            base_level = 1,
+            pipe_connections = {{ type="output", position = {1.5, 6.8} }},
+            secondary_draw_orders = { north = -1 }
+        }
+    }
+else
+    fluid_boxes =
+    {
+        {
+            production_type = "input",
+            pipe_covers = pipecoverspictures(),
+            base_area = 10,
+            base_level = -1,
+            pipe_connections = {{ type="input", position = {-1.5, 6.8} }},
+            secondary_draw_orders = { north = -1 }
+        },
+        {
+            production_type = "input",
+            pipe_covers = pipecoverspictures(),
+            base_area = 10,
+            base_level = -1,
+            pipe_connections = {{ type="input", position = {1.5, 6.8} }},
+            secondary_draw_orders = { north = -1 }
+        },
+        {
+            production_type = "output",
+            pipe_covers = pipecoverspictures(),
+            base_area = 10,
+            base_level = 1,
+            pipe_connections = {{ type="output", position = {-4.5, 6.8} }},
+            secondary_draw_orders = { north = -1 }
+        },
+        {
+            production_type = "output",
+            pipe_covers = pipecoverspictures(),
+            base_area = 10,
+            base_level = 1,
+            pipe_connections = {{ type="output", position = {4.5, 6.8} }},
+            secondary_draw_orders = { north = -1 }
+        }
+    }
+end
 
 data:extend({
 	-- Tech Tree Recipe
@@ -47,7 +122,7 @@ data:extend({
         stack_size = 50
 	},
 	{
-        type = "furnace",
+        type = furnace_type,
         name = "arc-furnace",
         icon = MOD_ROOT .. "/graphics/hr-arc-furnace-square.png",
         icon_size = 357,
@@ -60,16 +135,18 @@ data:extend({
         collision_box = {{-10, -2.8}, {10, 6.3}},
         selection_box = {{-10, -2.8}, {10, 6.3}},
         drawing_box   = {{-10, -2.8}, {10, 6.3}},
+        fluid_boxes = fluid_boxes,
         module_specification = {
             module_slots = 8,
             module_info_icon_shift = {0, 0.8}
         },
         allowed_effects = {"consumption", "speed", "productivity", "pollution"},
-        crafting_categories = {"arc-smelting"},
+        crafting_categories = furnace_crafting_category,
         result_inventory_size = 2,
         crafting_speed = settings.startup["ArcFurnace-CraftingSpeed"].value,
         energy_usage = "100000kW",
         source_inventory_size = 1,
+        se_allow_in_space = furnace_allow_in_space,
         energy_source = {
             type = "electric",
             usage_priority = "secondary-input",

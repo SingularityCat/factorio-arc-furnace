@@ -6,5 +6,25 @@ data:extend({
         default_value = 100,
         minimum_value = 0.1,
         maximum_value = 200
+    },
+    {
+        type = "string-setting",
+        name = "ArcFurnace-type",
+        setting_type = "startup",
+        default_value = "furnace",
+        allowed_values = {"assembling-machine", "furnace"}
+    },
+    {
+        type = "string-setting",
+        name = "ArcFurnace-crafting-category",
+        setting_type = "startup",
+        default_value = "arc-smelting",
+        allowed_values = {"smelting", "arc-smelting", "smelting+kiln"}
+    },
+    {
+        type = "bool-setting",
+        name = "ArcFurnace-space-platform",
+        setting_type = "startup",
+        default_value = false
     }
 })
