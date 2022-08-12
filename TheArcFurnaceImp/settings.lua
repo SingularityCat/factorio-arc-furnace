@@ -6,5 +6,13 @@ data:extend({
         default_value = 100,
         minimum_value = 0.1,
         maximum_value = 200
+    },
+    {
+        type = "string-setting",
+        name = "ArcFurnace-type",
+        setting_type = "startup",
+        default_value = "furnace",
+        allowed_values = {"assembling-machine", "furnace"},
+        order = "a"
     }
 })

@@ -1,4 +1,5 @@
 local MOD_ROOT = "__TheArcFurnaceImp__"
+local furnace_type = settings.startup["ArcFurnace-type"].value
 
 data:extend({
 	-- Tech Tree Recipe
@@ -47,7 +48,7 @@ data:extend({
         stack_size = 50
 	},
 	{
-        type = "furnace",
+        type = furnace_type,
         name = "arc-furnace",
         icon = MOD_ROOT .. "/graphics/hr-arc-furnace-square.png",
         icon_size = 357,

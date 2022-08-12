@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.11
+Date: 2022.08.12
+  Feature:
+    - Added type of furnace in startup settings. Either vanilla furnace-like smelting or selecting recipe like assembling machine.
+
+---------------------------------------------------------------------------------------------------
 Version: 1.0.10
 Date: 2022.08.11
   Info:
@@ -7,6 +13,7 @@ Date: 2022.08.11
     - Fixed startup errors for recipe results when there is a probability and amount_min/max.
     - Fixed copying custom icons for recipes. (If they're used by another mods (such as Deadbolt's stacked recipes), it won't generate a startup error).
     - Fixed entity description.
+
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.9
 Date: 2022.04.13
